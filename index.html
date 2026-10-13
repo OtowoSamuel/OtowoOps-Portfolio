@@ -76,16 +76,16 @@ body[data-mode=dark] .lo{display:none}
 <header>
 <span class="disp" style="font-size:1.1rem;line-height:1">Otowo/Ops</span>
 <div class="seg" role="tablist"><i></i><button class="on" data-m="light">Light</button><button data-m="dark">Dark</button></div>
-<div class="hidden md:flex items-center gap-3"><button class="btn" data-o="tele">Telemetry</button><a class="btn pri" href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener">View CV</a></div>
+<div class="hidden md:flex items-center gap-3"><button class="btn" data-o="tele">Telemetry</button><button class="btn" data-o="contact">Contact</button><a class="btn pri" href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener">View CV</a></div>
 </header>
-<div class="md:hidden" style="position:fixed;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:30;display:flex;gap:6px;justify-content:center"><button class="btn" style="background:var(--bg)" data-o="tele">Telemetry</button><a class="btn pri" style="background:var(--bg)" href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener">View CV</a></div>
+<div class="md:hidden" style="position:fixed;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:30;display:flex;gap:6px;justify-content:center"><button class="btn" style="background:var(--bg)" data-o="tele">Telemetry</button><button class="btn" style="background:var(--bg)" data-o="contact">Contact</button><a class="btn pri" style="background:var(--bg)" href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener">View CV</a></div>
 
 <main>
 <!-- LIGHT -->
 <div class="view on" id="light">
 <section class="hero">
 <span class="corner mono" style="top:clamp(70px,9vw,88px);left:clamp(16px,3vw,40px)">23 Sep, 2026</span>
-<span class="corner r mono" style="top:clamp(70px,9vw,88px);right:clamp(16px,3vw,40px);text-align:right"><a href="mailto:samuelotowo@gmail.com">samuelotowo@gmail.com</a> · 07083247105 · Nigeria · <a href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--fg);font-weight:500">CV ↗</a></span>
+<span class="corner r mono" style="top:clamp(70px,9vw,88px);right:clamp(16px,3vw,40px);text-align:right"><a href="#" data-o="contact" style="text-decoration:underline;text-underline-offset:3px">samuelotowo@gmail.com</a> · 07083247105 · Nigeria · <a href="https://drive.google.com/file/d/1z3AO_m1A9OHTHgmywknjMgMiKM7LoJNg/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--fg);font-weight:500">CV ↗</a></span>
 <h1 class="disp" style="font-size:clamp(2.4rem,8vw,7.2rem);margin:0;white-space:nowrap">DevOps<br>Engineer</h1>
 <div class="grid md:grid-cols-2 gap-10 md:gap-16">
 <div>
@@ -130,6 +130,22 @@ body[data-mode=dark] .lo{display:none}
 <p class="mono">Live cluster telemetry · simulated</p><div class="grid grid-cols-2 gap-3 my-4" id="mt"></div>
 <svg id="spark" viewBox="0 0 300 50" style="width:100%;height:60px"></svg>
 <div class="flex gap-2 my-4" id="tabs"></div><pre id="code"></pre></aside>
+
+<aside class="drawer" id="contact"><button class="btn" style="position:absolute;top:20px;right:20px" data-x>Close ✕</button>
+<p class="mono">Get in touch</p>
+<h3 class="disp" style="font-size:2.1rem;line-height:1;margin:14px 0 24px">Let's work<br>together.</h3>
+<div class="m" style="margin-bottom:10px"><span class="mono">Email</span><div class="flex items-center justify-between gap-2 mt-1"><b style="font-size:1rem;word-break:break-all">samuelotowo@gmail.com</b><button class="btn" data-copy="samuelotowo@gmail.com" style="flex:none">Copy</button></div></div>
+<div class="m" style="margin-bottom:10px"><span class="mono">Phone</span><div class="flex items-center justify-between gap-2 mt-1"><b style="font-size:1rem">07083247105</b><button class="btn" data-copy="07083247105" style="flex:none">Copy</button></div></div>
+<div class="flex flex-wrap gap-2 my-5"><a class="btn" target="_blank" rel="noopener" href="https://github.com/OtowoSamuel">GitHub</a><a class="btn" target="_blank" rel="noopener" href="https://linkedin.com/in/samuel-otowo-6a2bba215">LinkedIn</a><a class="btn" target="_blank" rel="noopener" href="https://x.com/OtowoOps">X</a><a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/@OtowoOps">YouTube</a></div>
+<p class="mono" style="border-top:1px solid var(--ln);padding-top:18px;margin-top:4px">Send a message</p>
+<p style="color:var(--mut);font-size:.82rem;margin:6px 0 16px">Fills in your email app with these details — nothing is stored or sent from this page.</p>
+<div style="display:grid;gap:12px">
+<input id="cf-name" placeholder="Your name" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit">
+<input id="cf-email" type="email" placeholder="Your email" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit">
+<textarea id="cf-msg" rows="4" placeholder="What are you reaching out about?" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit;resize:vertical"></textarea>
+<button class="btn pri" id="cf-send" style="width:100%">Compose Email ↗</button>
+</div>
+</aside>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -199,9 +215,12 @@ function tick(){M={"Nodes ready":[9+Math.round(Math.random()*3),""],"Pods":[212+
 $("#mt").innerHTML=Object.entries(M).map(([k,v])=>`<div class="m"><span class="mono">${k}</span><b>${v[0]}<small style="font-size:.7rem">${v[1]}</small></b></div>`).join("");
 H.push(20+Math.random()*25);H.shift();$("#spark").innerHTML=`<polyline fill="none" stroke="${getComputedStyle(document.body).getPropertyValue("--fg")}" stroke-width="1.2" points="${H.map((v,i)=>i*10.3+","+v).join(" ")}"/>`}
 tick();setInterval(tick,1500);
+// contact drawer
+$$("[data-copy]").forEach(b=>b.onclick=async()=>{const v=b.dataset.copy;try{await navigator.clipboard.writeText(v)}catch(e){const t=document.createElement("textarea");t.value=v;document.body.append(t);t.select();document.execCommand("copy");t.remove()}const o=b.textContent;b.textContent="Copied ✓";setTimeout(()=>b.textContent=o,1400)});
+$("#cf-send").onclick=()=>{const n=$("#cf-name").value.trim()||"Someone",e=$("#cf-email").value.trim(),m=$("#cf-msg").value.trim();const subj=encodeURIComponent(`Portfolio inquiry from ${n}`);const body=encodeURIComponent(`${m||"(no message entered)"}\n\n—\n${n}${e?"\n"+e:""}`);location.href=`mailto:samuelotowo@gmail.com?subject=${subj}&body=${body}`};
 // controls
 const sc2=$("#scrim");function shut(){$$(".drawer,.modal").forEach(x=>x.classList.remove("on"));sc2.classList.remove("on")}
-$$("[data-o]").forEach(b=>b.onclick=()=>{shut();$("#"+b.dataset.o).classList.add("on");sc2.classList.add("on")});
+$$("[data-o]").forEach(b=>b.onclick=e=>{if(b.tagName=="A")e.preventDefault();shut();$("#"+b.dataset.o).classList.add("on");sc2.classList.add("on")});
 $$("[data-x]").forEach(b=>b.onclick=shut);sc2.onclick=shut;addEventListener("keydown",e=>e.key=="Escape"&&shut());
 function mode(m){document.body.dataset.mode=m;$$(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));["light","dark"].forEach(v=>$("#"+v).classList.toggle("on",v==m));try{localStorage.setItem("om",m)}catch(e){}}
 $$(".seg button").forEach(b=>b.onclick=()=>mode(b.dataset.m));
