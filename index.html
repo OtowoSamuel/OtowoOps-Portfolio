@@ -143,7 +143,10 @@ body[data-mode=dark] .lo{display:none}
 <input id="cf-name" placeholder="Your name" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit">
 <input id="cf-email" type="email" placeholder="Your email" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit">
 <textarea id="cf-msg" rows="4" placeholder="What are you reaching out about?" style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:11px 12px;color:var(--fg);font:inherit;resize:vertical"></textarea>
-<button class="btn pri" id="cf-send" style="width:100%">Compose Email ↗</button>
+<div class="flex gap-2">
+<button class="btn pri" id="cf-send" style="flex:1">Email App ↗</button>
+<button class="btn" id="cf-gmail" style="flex:1">Open in Gmail ↗</button>
+</div>
 </div>
 </aside>
 
@@ -217,7 +220,9 @@ H.push(20+Math.random()*25);H.shift();$("#spark").innerHTML=`<polyline fill="non
 tick();setInterval(tick,1500);
 // contact drawer
 $$("[data-copy]").forEach(b=>b.onclick=async()=>{const v=b.dataset.copy;try{await navigator.clipboard.writeText(v)}catch(e){const t=document.createElement("textarea");t.value=v;document.body.append(t);t.select();document.execCommand("copy");t.remove()}const o=b.textContent;b.textContent="Copied ✓";setTimeout(()=>b.textContent=o,1400)});
-$("#cf-send").onclick=()=>{const n=$("#cf-name").value.trim()||"Someone",e=$("#cf-email").value.trim(),m=$("#cf-msg").value.trim();const subj=encodeURIComponent(`Portfolio inquiry from ${n}`);const body=encodeURIComponent(`${m||"(no message entered)"}\n\n—\n${n}${e?"\n"+e:""}`);location.href=`mailto:samuelotowo@gmail.com?subject=${subj}&body=${body}`};
+const getMail=()=>{const n=$("#cf-name").value.trim()||"Someone",e=$("#cf-email").value.trim(),m=$("#cf-msg").value.trim();const s=encodeURIComponent(`Portfolio inquiry from ${n}`),b=encodeURIComponent(`${m||"(no message entered)"}\n\n—\n${n}${e?"\n"+e:""}`);return{s,b}};
+$("#cf-send").onclick=()=>{const{s,b}=getMail();const a=document.createElement("a");a.href=`mailto:samuelotowo@gmail.com?subject=${s}&body=${b}`;document.body.appendChild(a);a.click();a.remove()};
+$("#cf-gmail").onclick=()=>{const{s,b}=getMail();window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=samuelotowo@gmail.com&su=${s}&body=${b}`,"_blank","noopener")};
 // controls
 const sc2=$("#scrim");function shut(){$$(".drawer,.modal").forEach(x=>x.classList.remove("on"));sc2.classList.remove("on")}
 $$("[data-o]").forEach(b=>b.onclick=e=>{if(b.tagName=="A")e.preventDefault();shut();$("#"+b.dataset.o).classList.add("on");sc2.classList.add("on")});
